@@ -1,5 +1,5 @@
-from .board import Board
-from players import Player
+from board import Board
+from players.player import Player
 
 class Engine:
     

@@ -1,5 +1,6 @@
-from game import Engine
-from players import PlayerHuman,PlayerRandom
+from game.engine import Engine
+from players.playerHuman import PlayerHuman
+from players.playerRandom import PlayerRandom
 
 if __name__ == "__main__":
     players = []

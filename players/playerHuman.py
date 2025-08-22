@@ -1,4 +1,4 @@
-from .player import Player
+from player import Player
 from game.board import Board
 
 class PlayerHuman(Player):
