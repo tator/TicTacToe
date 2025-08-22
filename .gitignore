@@ -1,5 +1,8 @@
 game/__pycache__/board.cpython-310.pyc
 game/__pycache__/engine.cpython-310.pyc
+game/__pycache__/
 players/__pycache__/player.cpython-310.pyc
 players/__pycache__/playerHuman.cpython-310.pyc
 players/__pycache__/playerRandom.cpython-310.pyc
+players/__pycache__/
+__pycache__/
