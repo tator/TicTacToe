@@ -1,4 +1,5 @@
 import sys
+import time
 from game.board import Board
 from players.player import Player
 
@@ -14,6 +15,7 @@ class EngineBatch:
             self.players[0].name: {"wins": 0, "losses": 0, "ties": 0},
             self.players[1].name: {"wins": 0, "losses": 0, "ties": 0}
         }
+        self.elapsed_time = 0
 
     def nextTurn(self):
         self.currentTurn = 1 - self.currentTurn
@@ -33,7 +35,7 @@ class EngineBatch:
     
     def printStats(self):
         print()
-        print()
+        print(f"{self.number:,} games took {self.elapsed_time:.6f} seconds")
         print(f"{'Player':<10} {'Wins %':<8} {'Losses %':<10} {'Ties %':<8}")
         print("-" * 40)
         for player, record in self.stats.items():
@@ -47,7 +49,7 @@ class EngineBatch:
             print(f"{player:<10} {wins:<8.1f} {losses:<10.1f} {ties:<8.1f}")
         print()
 
-    def loading_bar(self, current, total, length=30):
+    def loading_bar(self, current, total, length=40):
         percent = current / total
         filled = int(length * percent)
         bar = "█" * filled + "-" * (length - filled)
@@ -55,6 +57,7 @@ class EngineBatch:
         sys.stdout.flush()
 
     def play(self):
+        start_time = time.time()
         counter = 0
         while counter < self.number:
             self.currentTurn = counter % 2
@@ -75,6 +78,10 @@ class EngineBatch:
             self.board.reset()
             counter += 1
         self.loading_bar(counter, self.number)
+        sys.stdout.write("\r" + " " * 60 + "\r")
+        sys.stdout.flush()
+        end_time = time.time()
+        self.elapsed_time = end_time - start_time
         self.printStats()
 
 
