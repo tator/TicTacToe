@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from game.board import Board
+from game import Board
 
 class Player(ABC):
     

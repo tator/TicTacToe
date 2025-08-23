@@ -1,7 +1,7 @@
 import sys
 import time
-from game.board import Board
-from players.player import Player
+from .board import Board
+from players import Player
 
 
 class EngineBatch:
