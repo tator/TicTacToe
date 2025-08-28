@@ -1,7 +1,7 @@
 from .player import Player
 from game import Board
 
-class PlayerHuman(Player):
+class HumanPlayer(Player):
 
     def makeMove(self, board):
         self.displayOptions(board)

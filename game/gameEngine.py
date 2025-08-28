@@ -1,8 +1,9 @@
+from abc import ABC, abstractmethod
 from .board import Board
 from players import Player
 
-class Engine:
-    
+class GameEngine(ABC):
+
     def __init__(self, player1: Player, player2: Player):
         self.players = [player1, player2]
         self.board = Board()
@@ -24,20 +25,6 @@ class Engine:
                 return True
         return False
 
+    @abstractmethod
     def play(self):
-        while not self.board.isFull():
-            player = self.players[self.currentTurn]
-            move = player.makeMove(self.board)
-            if self.board.updateBoard(move,player.symbol):
-                print(f"{player.name} moves to {move}")
-                if self.checkWinner():
-                    self.board.display()
-                    print(f"{player.name} wins!")
-                    return
-                self.nextTurn()
-        self.board.display()
-        print("It's a tie!")
-
-        
-            
-
+        pass

@@ -2,7 +2,7 @@ from .player import Player
 from game import Board
 import random
 
-class PlayerDumb(Player):
+class DumbPlayer(Player):
 
     def makeMove(self, board: Board):
         if board.board[4] == " ":

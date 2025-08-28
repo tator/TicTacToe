@@ -1,6 +1,6 @@
 from .player import Player
-from .playerHuman import PlayerHuman
-from .playerRandom import PlayerRandom
-from .playerDumb import PlayerDumb
+from .humanPlayer import HumanPlayer
+from .randomPlayer import RandomPlayer
+from .dumbPlayer import DumbPlayer
 
-__all__ = ["PlayerHuman", "PlayerRandom", "PlayerDumb"]
+__all__ = ["HumanPlayer", "RandomPlayer", "DumbPlayer"]
