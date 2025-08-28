@@ -3,7 +3,7 @@ from game import Board
 
 class Player(ABC):
     
-    def __init__(self, name,symbol):
+    def __init__(self, name, symbol):
         self.name = name
         self.symbol = symbol
 
