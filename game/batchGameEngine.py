@@ -16,7 +16,7 @@ class BatchGameEngine(GameEngine):
         self.biDirection = biDirection
 
     def statReset(self):
-        self.stats = {"sym": self.mainPlayer.symbol, "wins": 0, "losses": 0, "ties": 0, "count": 0, "time": 0}
+        self.stats = {"sym": self.mainPlayer.symbol, "wins": 0, "losses": 0, "ties": 0, "time": 0}
     
     def printTitle(self):
         print()
@@ -27,14 +27,14 @@ class BatchGameEngine(GameEngine):
 
     def printStats(self):
         name = f"{self.mainPlayer.name} as {self.stats['sym']}:"
-        total_games = self.stats["wins"] + self.stats["losses"] + self.stats["ties"]
+        total_games = self.stats['wins'] + self.stats['losses'] + self.stats['ties']
         if total_games == 0:
             wins = losses = ties = 0
         else:
-            wins = (self.stats["wins"] / total_games) * 100
-            losses = (self.stats["losses"] / total_games) * 100
-            ties = (self.stats["ties"] / total_games) * 100
-        print(f"{name:<15} | {wins:<8.1f} {losses:<10.1f} {ties:<8.1f} | {self.stats['time']:.6f}")
+            wins = (self.stats['wins'] / total_games) * 100
+            losses = (self.stats['losses'] / total_games) * 100
+            ties = (self.stats['ties'] / total_games) * 100
+        print(f"{name:<15} | {wins:<8.1f} {losses:<10.1f} {ties:<8.1f} | {self.stats['time']:.4f}")
         
     def loading_bar(self, current, total, length=46):
         percent = current / total
@@ -54,7 +54,7 @@ class BatchGameEngine(GameEngine):
         if self.board.isFull():
             self.stats["ties"] += 1
             return
-        if self.players[self.currentTurn].name == self.mainPlayer.name:
+        if self.players[self.currentTurn] == self.mainPlayer:
             self.stats["wins"] += 1
         else:
             self.stats["losses"] += 1
